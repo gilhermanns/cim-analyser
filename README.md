@@ -25,7 +25,7 @@ A critical element of this architecture is the explicit documentation of its lim
 
 This section details known failure modes and their required human mitigation strategies, which is paramount in an Investment Banking context where errors can have catastrophic consequences.
 
-| Known Failure Mode | Why It's Dangerous in IB | Required Mitigation |
+| Known Failure Mode | Why It's Dangerous in IB/ PE/ ER | Required Mitigation |
 | :--- | :--- | :--- |
 | **Table Parsing Errors** | Incorrectly structured data from complex tables (e.g., merged cells, non-standard formats) leads to fundamentally flawed financial models. | Manual verification of all table-extracted data against the source PDF is required before model input. |
 | **Segment Overlap Double-Counting** | Failure to correctly delineate financial segments can lead to the same revenue or cost being counted multiple times, inflating or deflating key metrics. | Analyst must audit section boundaries and reconcile segment totals to the reported company total. |

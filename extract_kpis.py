@@ -30,7 +30,7 @@ def extract_kpis():
     """
     print("--- Running extract_kpis.py (Realistic Mock) ---")
     
-    output_dir = "../output"
+    output_dir = "output"
     sections_path = os.path.join(output_dir, "mock_report_sections.json")
     
     if not os.path.exists(sections_path):

@@ -8,7 +8,7 @@ def build_outputs():
     """
     print("--- Running build_outputs.py (Realistic Mock) ---")
     
-    output_dir = "../output"
+    output_dir = "output"
     sections_path = os.path.join(output_dir, "mock_report_sections.json")
     
     if not os.path.exists(sections_path):

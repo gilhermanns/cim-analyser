@@ -9,8 +9,8 @@ def identify_sections():
     """
     print("--- Running identify_sections.py (Realistic Mock) ---")
     
-    processed_dir = "../data/processed"
-    output_dir = "../output"
+    processed_dir = "data/processed"
+    output_dir = "output"
     
     input_path = os.path.join(processed_dir, "mock_report_text.txt")
     output_path = os.path.join(output_dir, "mock_report_sections.json")

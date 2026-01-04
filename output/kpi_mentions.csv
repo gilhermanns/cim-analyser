@@ -1,0 +1,9 @@
+kpi_name,raw_text_snippet,raw_value_string,parsed_value,source_page,validation_required,metric_type
+Financial Metric,Executive Summary The company achieved a record **$1.2 billion** in revenue for the fiscal year ending 2025. Thi,$1.2 billion,1200000000.0,1,True,GAAP/Other
+Net Income (GAAP),or the fiscal year ending 2025. This represents a 20% increase year-over-year. Our Net Income (GAAP) wa,20%,,1,True,GAAP/Other
+Net Income (GAAP),ncrease year-over-year. Our Net Income (GAAP) was $150 million. ,$150 million,150000000.0,1,True,GAAP/Other
+Adjusted EBITDA (Non-GAAP),"two new product lines, contributing an additional $50 million in revenue. Our Adjusted EBITDA (Non-GAAP) reache",$50 million,50000000.0,2,True,Non-GAAP
+Adjusted EBITDA (Non-GAAP),"n revenue. Our Adjusted EBITDA (Non-GAAP) reached $200 million, a 33% margin. ",$200 million,200000000.0,2,True,Non-GAAP
+Adjusted EBITDA (Non-GAAP),"djusted EBITDA (Non-GAAP) reached $200 million, a 33% margin. ",33%,,2,True,Non-GAAP
+Financial Metric,tal regulations could increase operating costs by $50 million annually. We maintain a conservative cash positio,$50 million,50000000.0,3,True,GAAP/Other
+Financial Metric,ally. We maintain a conservative cash position of $300 million.,$300 million,300000000.0,3,True,GAAP/Other

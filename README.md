@@ -111,3 +111,7 @@ Below is an example of extracted key financials from a mock annual report. This 
 ## License & Disclaimer
 
 This project is licensed under the MIT License. It is intended as a support tool for financial analysis and should not be used as a sole basis for investment decisions. Always verify extracted data with original sources.
+
+---
+
+*Entwickelt mit Unterstützung von Claude Code (Anthropic).*

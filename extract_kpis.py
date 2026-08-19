@@ -24,6 +24,22 @@ def parse_value(raw_string):
     except ValueError:
         return None # Return None if parsing fails, demonstrating the need for validation
 
+
+def extract_context(text, start, end, radius=50):
+    """Return a nearby context window without cutting the first or last word."""
+    lower_bound = max(0, start - radius)
+    upper_bound = min(len(text), end + radius)
+
+    if lower_bound > 0 and not text[lower_bound - 1].isspace():
+        left_boundary = text.find(" ", lower_bound, start)
+        snippet_start = left_boundary + 1 if left_boundary != -1 else lower_bound
+    else:
+        snippet_start = lower_bound
+
+    right_boundary = text.find(" ", end, upper_bound)
+    snippet_end = right_boundary if right_boundary != -1 else upper_bound
+    return text[snippet_start:snippet_end].replace("\n", " ")
+
 def extract_kpis():
     """
     Extracts KPIs using regex and structures the output for human validation.
@@ -56,9 +72,7 @@ def extract_kpis():
             
             # Find the surrounding context (raw_text_snippet)
             start, end = match.span()
-            snippet_start = max(0, start - 50)
-            snippet_end = min(len(page_text), end + 50)
-            raw_text_snippet = page_text[snippet_start:snippet_end].replace('\n', ' ')
+            raw_text_snippet = extract_context(page_text, start, end)
             
             # Determine KPI Name (simplified: based on surrounding text)
             kpi_name = "Financial Metric"

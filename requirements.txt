@@ -1,0 +1,1 @@
+# The checked-in mock-data pipeline uses only the Python standard library.

@@ -1,0 +1,20 @@
+name: Pipeline Smoke Test
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python identify_sections.py
+      - run: python extract_kpis.py
+      - run: python build_outputs.py
+      - run: test -f output/kpi_mentions.csv && test -f output/risks_raw.txt
+

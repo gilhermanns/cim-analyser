@@ -21,10 +21,10 @@ This system provides an automated pipeline to process these documents, identify 
 
 | Feature | Description |
 | :--- | :--- |
-| **Document Ingestion** | Processes PDF documents (CIMs, annual reports, investor presentations). |
-| **Key Data Extraction** | Identifies and extracts financial figures (revenue, EBITDA, margins), growth rates, and strategic commentary. |
-| **Structured Output** | Exports extracted data into analyst-friendly formats (e.g., Excel, JSON). |
-| **Customizable Templates** | Adapt extraction rules for different document types or deal-specific requirements. |
+| **Mock-document ingestion** | Processes the included realistic mock-report text fixture; a production PDF/OCR ingestion adapter is not included. |
+| **Key-data extraction** | Identifies KPI mentions and document sections using transparent rule-based logic. |
+| **Structured output** | Writes JSON, CSV and a raw risk-factor text extract for analyst review. |
+| **Human validation gate** | Ships a `VALIDATION_REQUIRED.txt` reminder because extracted CIM content must be reconciled with source documents. |
 
 ## Technical Architecture
 
@@ -78,16 +78,12 @@ Below is an example of extracted key financials from a mock annual report. This 
 
 ```text
 /cim-analyser
-├── README.md               # Project documentation
-├── requirements.txt        # Python dependencies
-├── main.py                 # Main execution script
-├── data/
-│   ├── sample_report.pdf   # Sample PDF for testing
-│   └── extraction_rules.yaml # Configuration for extraction patterns
-└── src/
-    ├── preprocessing/      # Document cleaning and text extraction
-    ├── extraction/         # Information extraction logic
-    └── structuring/        # Data structuring modules
+├── identify_sections.py    # identifies sections in the mock report fixture
+├── extract_kpis.py         # extracts KPI mentions into CSV and JSON
+├── build_outputs.py        # writes raw risk output and validation reminder
+├── mock_report_text.txt    # realistic mock-document input
+├── output/                 # versioned, generated sample outputs
+└── VALIDATION_REQUIRED.txt # human-review requirement
 ```
 
 ## Getting Started
@@ -98,15 +94,15 @@ Below is an example of extracted key financials from a mock annual report. This 
    git clone https://github.com/gilhermanns/cim-analyser.git
    cd cim-analyser
    ```
-2. Install dependencies:
+2. The checked-in pipeline uses only the Python standard library; no third-party runtime package is required.
+3. Run the complete mock-data pipeline:
    ```bash
-   pip install -r requirements.txt
+   python identify_sections.py
+   python extract_kpis.py
+   python build_outputs.py
    ```
-3. Configure extraction rules in `data/extraction_rules.yaml`.
-4. Run the analyser:
-   ```bash
-   python main.py --document data/sample_report.pdf
-   ```
+
+The commands generate [`output/mock_report_sections.json`](output/mock_report_sections.json), [`output/kpi_mentions.csv`](output/kpi_mentions.csv), [`output/kpi_mentions.json`](output/kpi_mentions.json), and [`output/risks_raw.txt`](output/risks_raw.txt). These are mock-data outputs that demonstrate the pipeline shape; they are not extracted from a live CIM or a real client document.
 
 ## License & Disclaimer
 

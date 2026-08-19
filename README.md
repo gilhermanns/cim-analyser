@@ -94,7 +94,11 @@ Below is an example of extracted key financials from a mock annual report. This 
    git clone https://github.com/gilhermanns/cim-analyser.git
    cd cim-analyser
    ```
-2. The checked-in pipeline uses only the Python standard library; no third-party runtime package is required.
+2. Install the declared runtime and test dependencies:
+   ```bash
+   python -m pip install -r requirements.txt
+   ```
+   The KPI extraction step uses `pandas`; the remaining pipeline stages use the Python standard library.
 3. Run the complete mock-data pipeline:
    ```bash
    python identify_sections.py
